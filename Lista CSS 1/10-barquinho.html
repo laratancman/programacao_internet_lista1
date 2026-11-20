@@ -1,0 +1,167 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Barquinho Animado</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .ceu {
+            height: 350px;
+            background: linear-gradient(#65c9f5, #d5f4ff);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .sol {
+            width: 80px;
+            height: 80px;
+            background-color: yellow;
+            border-radius: 50%;
+            position: absolute;
+            top: 35px;
+            right: 100px;
+        }
+
+        .nuvem {
+            position: absolute;
+            top: 70px;
+            left: -150px;
+            width: 110px;
+            height: 45px;
+            background: white;
+            border-radius: 50px;
+            box-shadow:
+                25px -20px 0 5px white,
+                55px -10px 0 10px white;
+            animation: moverNuvem 18s linear infinite;
+        }
+
+        @keyframes moverNuvem {
+            from {
+                left: -150px;
+            }
+
+            to {
+                left: 110%;
+            }
+        }
+
+        .mar {
+            height: 250px;
+            background: linear-gradient(#168bd0, #00518f);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .mar::before {
+            content: "";
+            position: absolute;
+            width: 200%;
+            height: 80px;
+            top: 0;
+            left: 0;
+            background: radial-gradient(
+                ellipse,
+                #8eeaff 0%,
+                #8eeaff 35%,
+                transparent 38%
+            );
+            background-size: 100px 60px;
+            animation: ondas 4s linear infinite;
+        }
+
+        .mar::after {
+            content: "";
+            position: absolute;
+            width: 200%;
+            height: 80px;
+            top: 35px;
+            left: 0;
+            background: radial-gradient(
+                ellipse,
+                #ffffff 0%,
+                #ffffff 30%,
+                transparent 35%
+            );
+            background-size: 130px 60px;
+            opacity: 0.5;
+            animation: ondas 6s linear infinite reverse;
+        }
+
+        @keyframes ondas {
+            from {
+                transform: translateX(0);
+            }
+
+            to {
+                transform: translateX(-50%);
+            }
+        }
+
+        .barquinho {
+            position: absolute;
+            top: 55px;
+            left: -120px;
+            font-size: 65px;
+            z-index: 2;
+            animation: navegar 12s linear infinite,
+                       balancar 2s ease-in-out infinite;
+        }
+
+        @keyframes navegar {
+            from {
+                left: -120px;
+            }
+
+            to {
+                left: 110%;
+            }
+        }
+
+        @keyframes balancar {
+            0%, 100% {
+                transform: rotate(-5deg);
+            }
+
+            50% {
+                transform: rotate(5deg);
+            }
+        }
+
+        h1 {
+            text-align: center;
+            padding: 15px;
+            color: #075985;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Um barquinho no mar</h1>
+
+    <div class="ceu">
+
+        <div class="sol"></div>
+
+        <div class="nuvem"></div>
+
+    </div>
+
+    <div class="mar">
+
+        <div class="barquinho">⛵</div>
+
+    </div>
+
+</body>
+</html>

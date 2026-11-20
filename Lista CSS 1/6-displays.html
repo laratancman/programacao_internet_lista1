@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Atividade 6 — Display e Positions</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;padding:24px;background:#fff;font-family:Arial,Helvetica,sans-serif;color:#111}
+.sheet{max-width:1100px;margin:0 auto}
+h1{font-size:21px;margin:0 0 5px;font-weight:700}
+.grid{display:grid;grid-template-columns:1fr 1.15fr .68fr;border:1px solid #111}
+.panel{min-width:0;border-right:1px solid #111}
+.panel:last-child{border-right:0}
+.caption{height:46px;padding:12px 7px;border-bottom:1px solid #111;font-size:14px}
+.stage{height:190px;position:relative;background:#fff;overflow:hidden}
+.browser{height:10px;background:#333;color:#ddd;font-size:5px;line-height:10px;padding:0 5px;white-space:nowrap}
+.browser .dots{display:inline-block;margin-right:8px;color:#aaa}
+.a-view{width:75%;margin:7px auto 0}
+.a-block{height:36px;display:block;width:100%;text-align:center;font-size:7px;padding-top:14px;color:#000}
+.purple{background:#6500f5}
+.green{background:#009b19}
+.red{background:#ff1010}
+.yellow{background:#efff00}
+.magenta{background:#ed00df}
+.blue{background:#1010ff}
+.b-view{position:absolute;top:37px;left:8px;right:8px}
+.b-view .browser{height:19px;line-height:19px;font-size:7px}
+.b-row{display:flex;height:53px}
+.b-block{width:25%;height:53px;text-align:center;padding-top:23px;font-size:7px;color:#000}
+.c-view{position:absolute;inset:0}
+.c-block{position:absolute;width:33px;height:33px;font-size:5px;padding:2px;color:#000}
+.c-red{left:8px;top:10px}
+.c-yellow{right:8px;top:10px}
+.c-magenta{left:50%;top:50%;transform:translate(-50%,-50%)}
+.c-blue{left:8px;bottom:10px}
+.c-green{right:8px;bottom:10px}
+@media(max-width:650px){
+ body{padding:10px}
+ .grid{grid-template-columns:1fr}
+ .panel{border-right:0;border-bottom:1px solid #111}
+ .panel:last-child{border-bottom:0}
+ .stage{height:190px}
+}
+</style>
+</head>
+<body>
+<main class="sheet">
+  <h1>Atividade 6 — Display e Positions.</h1>
+  <div class="grid">
+    <section class="panel">
+      <div class="caption">6a-display.html</div>
+      <div class="stage">
+        <div class="a-view">
+          <div class="browser"><span class="dots">● ● ●</span>http://127.0.0.1:3000/exercicio.html</div>
+          <div class="a-block purple">1</div>
+          <div class="a-block green">2</div>
+          <div class="a-block red">3</div>
+          <div class="a-block yellow">4</div>
+        </div>
+      </div>
+    </section>
+    <section class="panel">
+      <div class="caption">6b-display.html</div>
+      <div class="stage">
+        <div class="b-view">
+          <div class="browser"><span class="dots">‹　›　↻</span>http://127.0.0.1:3000/exercicio.html</div>
+          <div class="b-row">
+            <div class="b-block purple">1</div>
+            <div class="b-block green">2</div>
+            <div class="b-block red">3</div>
+            <div class="b-block yellow">4</div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="panel">
+      <div class="caption">6c-display.html</div>
+      <div class="stage">
+        <div class="c-view">
+          <div class="c-block red c-red">red</div>
+          <div class="c-block yellow c-yellow">yellow</div>
+          <div class="c-block magenta c-magenta">pink</div>
+          <div class="c-block blue c-blue">blue</div>
+          <div class="c-block green c-green">green</div>
+        </div>
+      </div>
+    </section>
+  </div>
+</main>
+</body>
+</html>

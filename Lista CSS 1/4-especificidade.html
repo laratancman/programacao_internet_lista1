@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Atividade 4 — Especificidade de seletores CSS</title>
+  <style>
+    :root {
+      --ink: #202938;
+      --muted: #536174;
+      --line: #dce3eb;
+      --accent: #2457a6;
+      --paper: #ffffff;
+      --soft: #f3f6fa;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      padding: 32px 18px;
+      background: #edf1f6;
+      color: var(--ink);
+      font: 16px/1.65 Arial, Helvetica, sans-serif;
+    }
+    main {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 42px 48px;
+      background: var(--paper);
+      border-radius: 12px;
+      box-shadow: 0 8px 28px rgba(25, 40, 60, .08);
+    }
+    h1 { margin: 0 0 8px; font-size: 28px; line-height: 1.25; }
+    h2 { margin: 30px 0 10px; font-size: 20px; color: var(--accent); }
+    p { margin: 8px 0 14px; }
+    .intro { color: var(--muted); }
+    .rule {
+      padding: 13px 16px;
+      margin: 12px 0;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+    }
+    .rule strong { color: var(--accent); }
+    code {
+      padding: 2px 5px;
+      border-radius: 4px;
+      background: var(--soft);
+      font-family: Consolas, "Courier New", monospace;
+      font-size: .94em;
+    }
+    pre {
+      overflow-x: auto;
+      padding: 16px;
+      border-radius: 8px;
+      background: #f3f6fa;
+      border: 1px solid var(--line);
+      font: 14px/1.55 Consolas, "Courier New", monospace;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 12px 0 18px;
+      font-size: 15px;
+    }
+    th, td {
+      padding: 10px 12px;
+      text-align: left;
+      border: 1px solid var(--line);
+      vertical-align: top;
+    }
+    th { background: var(--soft); }
+    .note {
+      padding: 13px 16px;
+      border-left: 4px solid var(--accent);
+      background: #f3f7fd;
+      border-radius: 4px;
+    }
+    footer { margin-top: 30px; color: var(--muted); font-size: 13px; }
+    @media (max-width: 650px) {
+      main { padding: 26px 20px; }
+      h1 { font-size: 24px; }
+      table { font-size: 13px; }
+      th, td { padding: 8px; }
+    }
+    @media print {
+      body { padding: 0; background: white; }
+      main { max-width: none; padding: 20px; box-shadow: none; }
+    }
+  </style>
+</head>
+<body>
+<main>
+  <h1>Atividade 4 — Especificidade de seletores CSS</h1>
+  <p class="intro">
+    As regras definem a cor dos itens de uma lista. Quando mais de uma regra pode ser
+    aplicada ao mesmo elemento, o navegador considera a especificidade do seletor:
+    seletores com ID têm maior peso que seletores de classe e atributos, que por sua vez
+    têm maior peso que seletores de elemento.
+  </p>
+
+  <h2>Explicação de cada regra</h2>
+
+  <section class="rule">
+    <strong>Regra 1 — <code>li { color: red; }</code></strong>
+    <p>
+      Seleciona todos os elementos <code>&lt;li&gt;</code> da lista e define a cor vermelha.
+      É uma regra geral, pois seleciona apenas pelo nome da tag. Ela aparece no item
+      <strong>Abacaxi</strong>, que não recebe nenhuma regra mais específica.
+    </p>
+  </section>
+
+  <section class="rule">
+    <strong>Regra 2 — <code>.churras { color: green; }</code></strong>
+    <p>
+      Seleciona todos os elementos que possuem a classe <code>churras</code>.
+      A intenção é deixar os itens dessa categoria verdes. Porém, nos itens em que
+      outra regra mais específica também se aplica, a cor verde é substituída.
+    </p>
+  </section>
+
+  <section class="rule">
+    <strong>Regra 3 — <code>.fruta { color: gray; }</code></strong>
+    <p>
+      Seleciona todos os elementos que possuem a classe <code>fruta</code> e define
+      a cor cinza. É aplicada aos itens de frutas, exceto quando uma regra com maior
+      especificidade determina outra cor.
+    </p>
+  </section>
+
+  <section class="rule">
+    <strong>Regra 4 — <code>li + li.churras { color: black; }</code></strong>
+    <p>
+      O seletor <code>+</code> representa o irmão adjacente. Portanto, seleciona um
+      elemento <code>li</code> com a classe <code>churras</code> que aparece
+      imediatamente depois de outro <code>li</code>. Como os itens da lista estão
+      um após o outro, essa regra seleciona <strong>Carne, Linguiça e Pão de alho</strong>.
+      Ela é mais específica que a regra 2, por isso esses itens deixam de ser verdes
+      e passam a ser pretos — exceto o último, que também é atingido pela regra 5.
+    </p>
+  </section>
+
+  <section class="rule">
+    <strong>Regra 5 — <code>.churras[draggable="true"] { color: magenta; }</code></strong>
+    <p>
+      Seleciona elementos que possuem simultaneamente a classe <code>churras</code>
+      e o atributo <code>draggable</code> com o valor <code>true</code>.
+      No HTML apresentado, isso corresponde ao item <strong>Pão de alho</strong>.
+      Essa regra prevalece sobre a regra 4 porque combina uma classe e um atributo,
+      tendo maior especificidade que o seletor da regra 4.
+    </p>
+  </section>
+
+  <section class="rule">
+    <strong>Regra 6 — <code>#lip1, #lip2, #lip3 { color: blue; }</code></strong>
+    <p>
+      A vírgula separa seletores: a regra selecionaria elementos com os IDs
+      <code>lip1</code>, <code>lip2</code> ou <code>lip3</code>. No HTML da figura,
+      não há elemento com ID <code>lip1</code>; os itens com IDs <code>lip2</code>
+      e <code>lip3</code> são <strong>Pera</strong> e <strong>Uva</strong>.
+      A cor azul prevalece sobre a regra da classe <code>.fruta</code>, pois um
+      seletor por ID tem maior especificidade.
+    </p>
+  </section>
+
+  <section class="rule">
+    <strong>Regra 7 — <code>#lip3.fruta { color: orange; }</code></strong>
+    <p>
+      Seleciona um elemento que tenha, ao mesmo tempo, o ID <code>lip3</code> e a
+      classe <code>fruta</code>. O elemento correspondente é <strong>Uva</strong>.
+      Como esse seletor é mais específico que o seletor de ID usado na regra 6
+      (ele também exige uma classe), a cor final de Uva é laranja, e não azul.
+    </p>
+  </section>
+
+  <section class="rule">
+    <strong>Regra 8 — <code>ol &gt; li.churras#lip5 { color: purple; }</code></strong>
+    <p>
+      Seleciona um elemento <code>li</code> com a classe <code>churras</code> e o ID
+      <code>lip5</code>, desde que seja filho direto de um <code>ol</code>.
+      Apesar de ser um seletor bastante específico, <strong>nenhum item recebe essa
+      regra</strong>, porque no HTML apresentado não existe um elemento com ID
+      <code>lip5</code>. O último item tem ID <code>lip7</code>, não <code>lip5</code>.
+      Por isso, a regra não altera a cor de nenhum elemento.
+    </p>
+  </section>
+
+  <h2>Resultado final das cores</h2>
+  <table>
+    <thead>
+      <tr><th>Item da lista</th><th>Regra que define a cor final</th><th>Cor final</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Abacaxi</td><td>Regra 1 (<code>li</code>)</td><td>Vermelha</td></tr>
+      <tr><td>Melão</td><td>Regra 3 (<code>.fruta</code>)</td><td>Cinza</td></tr>
+      <tr><td>Pera</td><td>Regra 6 (<code>#lip2</code>)</td><td>Azul</td></tr>
+      <tr><td>Uva</td><td>Regra 7 (<code>#lip3.fruta</code>)</td><td>Laranja</td></tr>
+      <tr><td>Maçã</td><td>Regra 3 (<code>.fruta</code>)</td><td>Cinza</td></tr>
+      <tr><td>Carne</td><td>Regra 4 (<code>li + li.churras</code>)</td><td>Preta</td></tr>
+      <tr><td>Linguiça</td><td>Regra 4 (<code>li + li.churras</code>)</td><td>Preta</td></tr>
+      <tr><td>Pão de alho</td><td>Regra 5 (<code>.churras[draggable="true"]</code>)</td><td>Magenta</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Conclusão</h2>
+  <p class="note">
+    As cores finais não dependem apenas da ordem em que as regras aparecem no CSS.
+    Quando várias regras atingem o mesmo elemento, a especificidade é considerada:
+    IDs têm mais peso que classes e atributos, e estes têm mais peso que seletores
+    de elementos. Seletor que não encontra um elemento correspondente, como a regra 8,
+    não produz alteração.
+  </p>
+
+  <footer>Resposta elaborada com base no trecho HTML e CSS apresentado na atividade.</footer>
+</main>
+</body>
+</html>

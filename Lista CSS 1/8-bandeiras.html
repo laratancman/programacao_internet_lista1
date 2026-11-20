@@ -1,0 +1,183 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>8 - Bandeiras</title>
+
+    <style>
+        /* Dimensões gerais das bandeiras */
+        .bandeira {
+            width: 300px;
+            height: 180px;
+            border: 1px solid #999;
+            margin: 20px;
+            position: relative;
+        }
+
+        /* Japão */
+        #japao.bandeira {
+            background-color: white;
+        }
+
+        #japao.bandeira > div.circulo {
+            width: 90px;
+            height: 90px;
+            background-color: #bc002d;
+            border-radius: 50%;
+            position: absolute;
+            top: 45px;
+            left: 105px;
+        }
+
+        /* Alemanha */
+        #alemanha.bandeira > div.preto {
+            height: 60px;
+            background-color: black;
+        }
+
+        #alemanha.bandeira > div.vermelho {
+            height: 60px;
+            background-color: #dd0000;
+        }
+
+        #alemanha.bandeira > div.amarelo {
+            height: 60px;
+            background-color: #ffce00;
+        }
+
+        /* Holanda */
+        #holanda.bandeira > div.vermelho {
+            height: 60px;
+            background-color: #ae1c28;
+        }
+
+        #holanda.bandeira > div.branco {
+            height: 60px;
+            background-color: white;
+        }
+
+        #holanda.bandeira > div.azul {
+            height: 60px;
+            background-color: #21468b;
+        }
+
+        /* Itália */
+        #italia.bandeira > div.verde,
+        #italia.bandeira > div.branco,
+        #italia.bandeira > div.vermelho {
+            width: 100px;
+            height: 180px;
+            float: left;
+        }
+
+        #italia.bandeira > div.verde {
+            background-color: #009246;
+        }
+
+        #italia.bandeira > div.branco {
+            background-color: white;
+        }
+
+        #italia.bandeira > div.vermelho {
+            background-color: #ce2b37;
+        }
+
+        /* Brasil */
+        #brasil.bandeira {
+            background-color: #009b3a;
+        }
+
+        #brasil.bandeira > div.losango {
+            width: 0;
+            height: 0;
+            border-left: 120px solid transparent;
+            border-right: 120px solid transparent;
+            border-bottom: 75px solid #ffdf00;
+            position: absolute;
+            top: 15px;
+            left: 29px;
+        }
+
+        #brasil.bandeira > div.losango::after {
+            content: "";
+            position: absolute;
+            top: 75px;
+            left: -120px;
+            width: 0;
+            height: 0;
+            border-left: 120px solid transparent;
+            border-right: 120px solid transparent;
+            border-top: 75px solid #ffdf00;
+        }
+
+        #brasil.bandeira > div.circulo {
+            width: 90px;
+            height: 90px;
+            background-color: #002776;
+            border-radius: 50%;
+            position: absolute;
+            top: 45px;
+            left: 105px;
+        }
+
+        /* Links */
+        a {
+            margin-right: 15px;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <h1>Bandeiras dos Países</h1>
+
+    <!-- Links com âncoras internas -->
+    <a href="#japao">Bandeira Japão</a>
+    <a href="#alemanha">Bandeira Alemanha</a>
+    <a href="#holanda">Bandeira Holanda</a>
+    <a href="#italia">Bandeira Itália</a>
+    <a href="#brasil">Bandeira Brasil</a>
+
+    <hr>
+
+    <h2>Japão</h2>
+
+    <div class="bandeira" id="japao">
+        <div class="circulo"></div>
+    </div>
+
+    <h2>Alemanha</h2>
+
+    <div class="bandeira" id="alemanha">
+        <div class="preto"></div>
+        <div class="vermelho"></div>
+        <div class="amarelo"></div>
+    </div>
+
+    <h2>Holanda</h2>
+
+    <div class="bandeira" id="holanda">
+        <div class="vermelho"></div>
+        <div class="branco"></div>
+        <div class="azul"></div>
+    </div>
+
+    <h2>Itália</h2>
+
+    <div class="bandeira" id="italia">
+        <div class="verde"></div>
+        <div class="branco"></div>
+        <div class="vermelho"></div>
+    </div>
+
+    <h2>Brasil</h2>
+
+    <div class="bandeira" id="brasil">
+        <div class="losango"></div>
+        <div class="circulo"></div>
+    </div>
+
+</body>
+</html>
