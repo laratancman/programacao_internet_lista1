@@ -1,0 +1,138 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Protocolo HTTP</title>
+</head>
+<body>
+
+    <h1>HTTP na prática: requisição e resposta</h1>
+
+    <p>
+        HTTP significa Hypertext Transfer Protocol.
+        É um protocolo utilizado para permitir a comunicação
+        entre navegadores e servidores na Web.
+    </p>
+
+    <hr>
+
+    <h2>Como funciona o HTTP?</h2>
+
+    <p>
+        Quando acessamos um site, o navegador envia uma requisição
+        ao servidor. O servidor recebe essa solicitação, processa
+        as informações e retorna uma resposta.
+    </p>
+
+    <h2>Principais conceitos</h2>
+
+    <ul>
+        <li><strong>Cliente:</strong> geralmente é o navegador que solicita informações.</li>
+        <li><strong>Servidor:</strong> recebe as solicitações e disponibiliza os conteúdos.</li>
+        <li><strong>Requisição:</strong> mensagem enviada pelo cliente.</li>
+        <li><strong>Resposta:</strong> mensagem retornada pelo servidor.</li>
+    </ul>
+
+    <hr>
+
+    <h2>Métodos HTTP</h2>
+
+    <h3>GET</h3>
+    <p>
+        O método GET é utilizado para solicitar informações
+        de um servidor. Por exemplo, acessar uma página.
+    </p>
+
+    <h3>POST</h3>
+    <p>
+        O método POST é utilizado para enviar informações
+        ao servidor, como dados de um formulário.
+    </p>
+
+    <hr>
+
+    <h2>Exemplo de requisição HTTP</h2>
+
+    <pre>
+GET /index.html HTTP/1.1
+Host: www.exemplo.com
+Accept: text/html
+    </pre>
+
+    <p>
+        Nesse exemplo, o navegador solicita ao servidor
+        a página index.html.
+    </p>
+
+    <h2>Exemplo de resposta HTTP</h2>
+
+    <pre>
+HTTP/1.1 200 OK
+Content-Type: text/html
+Content-Length: 125
+
+<html>
+<body>
+    <h1>Olá, mundo!</h1>
+</body>
+</html>
+    </pre>
+
+    <p>
+        O servidor respondeu com o código 200, indicando
+        que a solicitação foi realizada com sucesso.
+    </p>
+
+    <hr>
+
+    <h2>Códigos de status HTTP</h2>
+
+    <p>
+        Os códigos de status indicam o resultado de uma requisição.
+        Eles são divididos em categorias, como sucesso, redirecionamento
+        e erros.
+    </p>
+
+    <ul>
+        <li><strong>200 OK:</strong> a requisição foi realizada com sucesso.</li>
+
+        <li><strong>301 Moved Permanently:</strong> a página foi movida permanentemente.</li>
+
+        <li><strong>302 Found:</strong> o recurso está temporariamente em outro endereço.</li>
+
+        <li><strong>400 Bad Request:</strong> a requisição possui algum erro.</li>
+
+        <li><strong>403 Forbidden:</strong> o acesso ao recurso não é permitido.</li>
+
+        <li><strong>404 Not Found:</strong> a página ou recurso não foi encontrado.</li>
+
+        <li><strong>500 Internal Server Error:</strong> ocorreu um erro interno no servidor.</li>
+    </ul>
+
+    <hr>
+
+    <h2>Resumo</h2>
+
+    <p>
+        O HTTP é essencial para o funcionamento da Web, pois permite
+        que clientes e servidores troquem informações.
+        Sem esse protocolo, a navegação entre páginas não funcionaria
+        da maneira que conhecemos.
+    </p>
+
+    <hr>
+
+    <h2>Menu de navegação</h2>
+
+    <ul>
+        <li><a href="index.html">Início</a></li>
+        <li><a href="historia_web.html">História da Web</a></li>
+        <li><a href="estados.html">Estados HTTP</a></li>
+        <li><a href="curriculo.html">Currículo</a></li>
+        <li><a href="contato.html">Contato</a></li>
+    </ul>
+
+</body>
+</html>
