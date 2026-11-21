@@ -1,0 +1,154 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Layout Adaptativo</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            padding: 10px;
+        }
+
+        .container {
+            display: grid;
+            gap: 5px;
+            height: 500px;
+
+            grid-template-columns: 1fr 3fr 1fr;
+
+            grid-template-rows: 50px 30px 1fr 30px 30px;
+
+            grid-template-areas:
+                "header header header"
+                "left banner right"
+                "left main right"
+                "left low right"
+                "footer footer footer";
+        }
+
+        .item {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            border: 3px solid white;
+            border-radius: 5px;
+        }
+
+        .header {
+            grid-area: header;
+            background-color: #f5b900;
+        }
+
+        .banner {
+            grid-area: banner;
+            background-color: #d94336;
+        }
+
+        .left {
+            grid-area: left;
+            background-color: #159b59;
+        }
+
+        .main {
+            grid-area: main;
+            background-color: #4285eF;
+        }
+
+        .right {
+            grid-area: right;
+            background-color: #f5b900;
+        }
+
+        .low {
+            grid-area: low;
+            background-color: #159b59;
+        }
+
+        .footer {
+            grid-area: footer;
+            background-color: #4285eF;
+        }
+
+        /* RESPONSIVIDADE PARA CELULAR */
+
+        @media screen and (max-width: 600px) {
+
+            .container {
+                height: auto;
+
+                grid-template-columns: 1fr;
+
+                grid-template-rows:
+                    50px
+                    50px
+                    50px
+                    300px
+                    50px
+                    50px
+                    50px;
+
+                grid-template-areas:
+                    "header"
+                    "banner"
+                    "left"
+                    "main"
+                    "right"
+                    "low"
+                    "footer";
+            }
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="item header">
+            Header
+        </div>
+
+        <div class="item banner">
+            Banner
+        </div>
+
+        <div class="item left">
+            Left Aside
+        </div>
+
+        <div class="item main">
+            Main Content
+        </div>
+
+        <div class="item right">
+            Right Aside
+        </div>
+
+        <div class="item low">
+            Low Content
+        </div>
+
+        <div class="item footer">
+            Footer
+        </div>
+
+    </div>
+
+</body>
+
+</html>
