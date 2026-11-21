@@ -1,0 +1,138 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade 8 - Layout Responsivo</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #eeeeee;
+            padding: 20px;
+        }
+
+        .layout {
+            display: grid;
+            width: 100%;
+            max-width: 700px;
+            height: 320px;
+            margin: auto;
+            gap: 3px;
+
+            grid-template-columns: 25px 1.2fr 0.8fr 0.8fr;
+            grid-template-rows: 1fr 1fr 0.8fr;
+
+            grid-template-areas:
+                "bolas azul azul amarelo"
+                "bolas rosa ciano amarelo"
+                "bolas rosa verde verde";
+        }
+
+        .bolas {
+            grid-area: bolas;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .bolas span {
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+        }
+
+        .bolas span:nth-child(1) { background: #f29a70; }
+        .bolas span:nth-child(2) { background: #b7c77b; }
+        .bolas span:nth-child(3) { background: #cbbce0; }
+        .bolas span:nth-child(4) { background: #f5a623; }
+
+        .azul {
+            grid-area: azul;
+            background: #b7c9df;
+        }
+
+        .rosa {
+            grid-area: rosa;
+            background: #e9b2a8;
+        }
+
+        .ciano {
+            grid-area: ciano;
+            background: #c4dddd;
+        }
+
+        .amarelo {
+            grid-area: amarelo;
+            background: #f5b12e;
+        }
+
+        .verde {
+            grid-area: verde;
+            background: #b6c875;
+        }
+
+        .layout > div:not(.bolas) {
+            border: 1px solid white;
+        }
+
+        /* Responsividade para telas menores que 500px */
+        @media screen and (max-width: 500px) {
+
+            body {
+                padding: 10px;
+            }
+
+            .layout {
+                height: auto;
+                grid-template-columns: 1fr 1fr;
+                grid-template-rows: 45px 100px 100px 100px;
+
+                grid-template-areas:
+                    "bolas bolas"
+                    "azul azul"
+                    "rosa amarelo"
+                    "ciano verde";
+            }
+
+            .bolas {
+                flex-direction: row;
+                justify-content: center;
+            }
+
+            .bolas span {
+                width: 18px;
+                height: 18px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="layout">
+
+        <div class="bolas">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+        <div class="azul"></div>
+        <div class="rosa"></div>
+        <div class="ciano"></div>
+        <div class="amarelo"></div>
+        <div class="verde"></div>
+
+    </div>
+
+</body>
+</html>
